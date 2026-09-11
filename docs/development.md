@@ -10,7 +10,7 @@ The setup tutorial takes a new contributor from prerequisites to a checked check
 
 - Node.js supports 22.19+ and 24+. CI covers 22.19, 24, and 26; see the [Node engine floor Agent Note](../.agents/notes/implemented/process/2026-07-06-node-engine-floor.md).
 - Corepack-enabled pnpm. The repo pins `pnpm@11.7.0` in `package.json`; run `corepack enable` if `pnpm --version` does not resolve through Corepack.
-- On Nix, `nix develop` from the repo root provides Node.js 24, pnpm 11.7.0, uv, Python 3, and Git; `flake.lock` pins the nixpkgs commit it uses.
+- On Nix, `nix develop` from the repo root provides Node.js 24, pnpm 11.7.0, uv, Python 3, Git, and — on Linux — the `bwrap` sandbox runner; `flake.lock` pins the nixpkgs commit it uses.
 - Git 2.26 or newer; hook setup enables Git's worktree-specific configuration extension.
 - Optional: a DeepSeek API key for the Web, headless, and ACP automation demos and real-API e2e tests.
 

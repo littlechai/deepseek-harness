@@ -12,7 +12,7 @@
 
 - Node.js 支持 22.19+ 与 24+。CI 覆盖 22.19、24 和 26；见 [Node 引擎下限 Agent Note](../.agents/notes/implemented/process/2026-07-06-node-engine-floor.zh.md)。
 - 启用了 Corepack 的 pnpm。仓库在 `package.json` 中固定使用 `pnpm@11.7.0`；如果 `pnpm --version` 无法通过 Corepack 解析，请先运行 `corepack enable`。
-- 如果你使用 Nix，可在仓库根目录运行 `nix develop`，它会提供 Node.js 24、pnpm 11.7.0、uv、Python 3 和 Git；`flake.lock` 固定了所用的 nixpkgs commit。
+- 如果你使用 Nix，可在仓库根目录运行 `nix develop`，它会提供 Node.js 24、pnpm 11.7.0、uv、Python 3、Git，以及在 Linux 上的 `bwrap` 沙箱 runner；`flake.lock` 固定了所用的 nixpkgs commit。
 - Git 2.26 或更高版本；钩子设置会启用 Git 的 worktree 专属配置扩展。
 - 可选：一个 DeepSeek API key，用于 Web、headless 和 ACP（Agent Client Protocol）自动化 agent（智能体）演示以及真实 API 的 e2e 测试。
 
