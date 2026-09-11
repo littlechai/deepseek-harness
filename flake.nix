@@ -39,7 +39,7 @@
             # fails closed with SANDBOX_UNAVAILABLE, so launching `dsh` from
             # this shell would still need per-call approval. macOS confines
             # through the OS `sandbox-exec`, so nothing is added there.
-            ++ nixpkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.bubblewrap ];
+            ++ nixpkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [ pkgs.bubblewrap ];
         };
     in
     {
