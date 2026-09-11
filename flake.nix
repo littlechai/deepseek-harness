@@ -16,8 +16,10 @@
 
       mkDevShell = pkgs:
         let
-          # nixpkgs ships pnpm_11 at 11.4.0; build the pinned release
-          # through nixpkgs' own pnpm builder from the official npm tarball.
+          # Match `packageManager` in package.json — the version Corepack and CI
+          # resolve — rather than nixpkgs' own pnpm, which tracks another
+          # release; building it here keeps the shell hermetic (no registry
+          # download at use time). Bump this with the package.json pin.
           pnpm = pkgs.callPackage (pkgs.path + "/pkgs/development/tools/pnpm/generic.nix") {
             version = "11.7.0";
             hash = "sha256-3q+n7JihIYtqBHKJuS++I5XB4i00lbtxFlMBMhjuFe4=";
